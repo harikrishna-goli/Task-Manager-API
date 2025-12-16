@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
 from enum import Enum
@@ -12,7 +12,7 @@ These ensure clean validation and serialization.'''
 class UserCreate(BaseModel):
     username: str
     hashed_password: str
-    created_at: datetime
+    created_at = Field(default_factory=datetime.now)
 
 class UserRead(BaseModel):
     id: int
