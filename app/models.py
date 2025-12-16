@@ -11,6 +11,7 @@ Task (id, title, description, status, owner_id, created_at, updated_at)
 Link Task.owner_id to User.id with a foreign key.
 '''
 
+
 class User(Base):
     __tablename__ = 'users'
 
