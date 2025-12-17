@@ -1,0 +1,12 @@
+#Env
+#.env
+.env.test
+.env.local
+
+# Logs
+.\venv\
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
