@@ -9,11 +9,13 @@ TaskCreate, TaskUpdate, TaskRead
 These ensure clean validation and serialization.'''
 
 #---------------User Schemas---------------#
+
+#To Create a new user input schema
 class UserCreate(BaseModel):
     username: str
     hashed_password: str
-    created_at = Field(default_factory=datetime.now)
 
+#Create a user output schema for reading user data after creation
 class UserRead(BaseModel):
     id: int
     username: str
@@ -21,8 +23,15 @@ class UserRead(BaseModel):
 
     class Config:
         orm_mode = True
+
+#Schema for user login
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
     
 #--------------Task Schemas---------------#
+#Enum for task status
 class TaskStatus(str, Enum):
     TODO = "TODO"
     IN_PROGRESS = "IN_PROGRESS"
