@@ -1,11 +1,12 @@
-fastapi
-uvicorn[standard]
-sqlalchemy
-alembic
-python-dotenv
-pytest
-httpx
-python-jose[cryptography]
-passlib[bcrypt]
-psycopg2-binary
-pydantic
+fastapi # web framework
+uvicorn[standard] # for running the ASGI server
+sqlalchemy # for database ORM
+alembic # for database migrations
+python-dotenv # for environment variable management
+pytest # for testing
+httpx # for testing HTTP requests
+python-jose[cryptography] # for JWT token handling
+passlib[bcrypt] # for password hashing
+psycopg2-binary # PostgreSQL database adapter
+pydantic # data validation
+python-multipart # for form data parsing when handling file uploads

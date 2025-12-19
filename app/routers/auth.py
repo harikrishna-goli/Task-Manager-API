@@ -1,6 +1,9 @@
-from fastapi import APIRouter, Depends
-from app import schemas
+from fastapi import APIRouter, Depends, HTTPException, status
+from app import schemas, models
 from app.database import get_db
+from sqlalchemy.orm import Session
+from jose import JWTError, jwt
+
 
 router = APIRouter(
     prefix="/auth",
