@@ -13,7 +13,7 @@ These ensure clean validation and serialization.'''
 #To Create a new user input schema
 class UserCreate(BaseModel):
     username: str
-    hashed_password: str
+    password: str
 
 #Create a user output schema for reading user data after creation
 class UserRead(BaseModel):
