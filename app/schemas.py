@@ -1,5 +1,5 @@
-from pydantic import BaseModel, Field
-from typing import List, Optional
+from pydantic import BaseModel, constr
+from typing import List, Optional, Annotated
 from datetime import datetime
 from enum import Enum
 
@@ -13,7 +13,7 @@ These ensure clean validation and serialization.'''
 #To Create a new user input schema
 class UserCreate(BaseModel):
     username: str
-    hashed_password: str
+    password: Annotated[str, constr(min_length=8, max_length=72)]  
 
 #Create a user output schema for reading user data after creation
 class UserRead(BaseModel):
@@ -22,7 +22,7 @@ class UserRead(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 #Schema for user login
 class UserLogin(BaseModel):
@@ -59,4 +59,4 @@ class TaskRead(BaseModel):
     updated_at: Optional[datetime] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True
