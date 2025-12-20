@@ -12,11 +12,20 @@ router = APIRouter(
     tags=["auth"]
 )
 
-@router.post("/users/")
+@router.post("/users/", response_model=schemas.UserRead)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    hash_password = hash_password(user.password)
+    userexists = (
+        db.query(models.User)
+                  .filter(models.User.username == user.username)
+                  .first())
+    
+    if userexists:
+        raise HTTPException(status_code=400, 
+                            detail="Username already registered")
+    
+    hashed_password = hash_password(user.password)
     db_user = models.User(username=user.username, 
-                          hashed_password=hash_password, 
+                          hashed_password=hashed_password, 
                           created_at=str(datetime.now()))
     db.add(db_user)
     db.commit()

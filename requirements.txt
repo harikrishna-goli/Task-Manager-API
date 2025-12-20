@@ -10,3 +10,4 @@ passlib[bcrypt] # for password hashing
 psycopg2-binary # PostgreSQL database adapter
 pydantic # data validation
 python-multipart # for form data parsing when handling file uploads
+pydantic-settings # for managing settings with Pydantic
