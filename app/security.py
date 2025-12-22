@@ -18,4 +18,12 @@ def create_access_token(data: str, expires_delta: timedelta = None):
     return encoded_jwt
 
 def decode_access_token(token: str):
-    return jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALG])
+    try:
+        payload = jwt.decode(token, settings.JWT_SECRET, algorithms=[settings.JWT_ALG])
+        username: str = payload.get("sub")
+        if username is None:
+            raise JWTError
+        return username
+    except JWTError:
+        return None
+
