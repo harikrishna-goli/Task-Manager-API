@@ -5,21 +5,14 @@ from app.database import get_db
 from sqlalchemy.orm import Session
 from datetime import datetime
 from jose import JWTError, jwt
-from fastapi.security import OAuth2
-from fastapi.openapi.models import OAuthFlows as OAuthFlowsModel
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 router = APIRouter(
     prefix="/auth",
     tags=["auth"]
 )
 
-class OAuth2PasswordBearerWithCookie(OAuth2):
-    def __init__(self, tokenUrl: str): 
-        flows = OAuthFlowsModel(password={"tokenUrl": tokenUrl})
-        super().__init__(flows=flows) 
-
-
-oauth2_scheme = OAuth2PasswordBearerWithCookie(tokenUrl="/auth/login")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 @router.get("/me/", response_model=schemas.UserRead)
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     username = decode_access_token(token)
