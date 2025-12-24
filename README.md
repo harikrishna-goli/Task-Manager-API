@@ -26,6 +26,7 @@ Designed with clean architecture, JWT-based security, and full CRUD support.
 - **PostgreSQL** – relational database
 - **Pydantic v2** – data validation
 - **Pytest** – testing framework
+- **Alembic** - DB Migraton
 
 ---
 
@@ -81,11 +82,14 @@ Task-Manager-API/
    DB_PASSWORD=supersecret
    DB_NAME=app_db
    ```
-
+5. **DB Migration**
+```
+  docker compose up -d
+  alembic upgrade head
+```
 
 5. **Start the server**
    ```bash
-   docker compose up -d
    uvicorn app.main:app --reload
    ```
 
