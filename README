@@ -3,8 +3,6 @@
 A production‑ready **FastAPI backend** for managing tasks with user authentication.  
 This project demonstrates clean backend architecture, JWT authentication, and CRUD operations for tasks.
 
----
-
 ## Features
 - **User Authentication** (JWT based)
   - Register, login, and `/auth/me` endpoint to fetch current user.
@@ -18,7 +16,6 @@ This project demonstrates clean backend architecture, JWT authentication, and CR
 - **Environment Config**
   - `.env` file support via Pydantic v2 `ConfigDict`.
 
----
 
 ## Tech Stack
 - **FastAPI** – modern Python web framework
@@ -27,7 +24,6 @@ This project demonstrates clean backend architecture, JWT authentication, and CR
 - **Pydantic v2** – data validation
 - **Pytest** – testing framework
 
----
 
 ## Project Structure
 ```
@@ -47,9 +43,8 @@ Task-Manager-API/
 └── README.md
 ```
 
----
 
-## ⚙️ Setup & Installation
+## Setup & Installation
 
 1. **Clone the repo**
    ```bash
@@ -89,7 +84,6 @@ Task-Manager-API/
    uvicorn app.main:app --reload
    ```
 
----
 
 ## API Endpoints
 
