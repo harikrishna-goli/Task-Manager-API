@@ -85,8 +85,8 @@ Task-Manager-API/
    ```
 5. **DB Migration**
     ```bash
-      docker compose up -d
-      alembic upgrade head
+    docker compose up -d
+    alembic upgrade head
     ```
 
 6. **Start the server**
