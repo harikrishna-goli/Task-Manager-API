@@ -71,8 +71,7 @@ Task-Manager-API/
    Start the Docker Desktop app
 
 4. **Configure environment**
-   Already a default `.env` given in the folder you can skip this step
-   You can make to `.env` file if needed: 
+   A default `.env` file is given in the repo you can skip this step: 
    ```
    DATABASE_URL=postgresql+psycopg2://app_user:supersecret@localhost:5432/app_db
    JWT_SECRET=change_me
@@ -83,13 +82,13 @@ Task-Manager-API/
    DB_PASSWORD=supersecret
    DB_NAME=app_db
    ```
-5. **DB Migration**
+6. **DB Migration**
     ```bash
     docker compose up -d
     alembic upgrade head
     ```
 
-6. **Start the server**
+7. **Start the server**
    ```bash
    uvicorn app.main:app --reload
    ```
