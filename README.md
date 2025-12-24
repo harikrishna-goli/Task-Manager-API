@@ -98,7 +98,6 @@ Task-Manager-API/
 - `PUT /tasks/{task_id}` → Update task (title, description, status)
 - `DELETE /tasks/{task_id}` → Delete task
 
----
 
 ## Testing
 Run the test suite with:
