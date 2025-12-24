@@ -40,14 +40,11 @@ class TaskStatus(str, Enum):
 class TaskCreate(BaseModel):
     title: str
     description: Optional[str] = None
-    status: Optional[TaskStatus] = TaskStatus.TODO
-    created_at: datetime
 
 class TaskUpdate(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
     status: Optional[TaskStatus] = None
-    updated_at: Optional[datetime] = None
 
 class TaskRead(BaseModel):
     id: int

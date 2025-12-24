@@ -3,6 +3,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 
 
+
 '''
 Set up database models
 Create a models.py file with SQLAlchemy models for your core entities:
