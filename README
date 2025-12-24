@@ -1,4 +1,3 @@
--
 # Task Manager API
 
 A production‑ready **FastAPI backend** for managing tasks with user authentication.  
@@ -92,7 +91,7 @@ Task-Manager-API/
 
 ---
 
-## 📖 API Endpoints
+## API Endpoints
 
 ### Auth
 - `POST /auth/users/` → Register new user
@@ -107,7 +106,7 @@ Task-Manager-API/
 
 ---
 
-## 🧪 Testing
+## Testing
 Run the test suite with:
 ```bash
 pytest -v
