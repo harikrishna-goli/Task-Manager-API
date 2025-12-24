@@ -14,7 +14,7 @@ router = APIRouter(
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 @router.get("/me/", response_model=schemas.UserRead)
-def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     username = decode_access_token(token)
     if username is None:
         raise HTTPException(
@@ -24,6 +24,7 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
             )
 
     user = db.query(models.User).filter(models.User.username == username).first()
+    print(username,user)
     if user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                             detail="User not found")
@@ -61,4 +62,3 @@ def login(user_credentials: schemas.UserLogin, db: Session = Depends(get_db)):
     access_token = create_access_token(data=user.username)
     return {"access_token": access_token, 
             "token_type": "bearer"}
-
