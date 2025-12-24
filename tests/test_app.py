@@ -4,7 +4,6 @@ from app.main import app
 from app.database import Base, engine, SessionLocal
 from sqlalchemy.orm import Session
 
-# Create a fresh test database schema before tests
 @pytest.fixture(scope="module")
 def test_db():
     Base.metadata.create_all(bind=engine)
@@ -13,14 +12,10 @@ def test_db():
     db.close()
     Base.metadata.drop_all(bind=engine)
 
-# Use FastAPI’s test client
 client = TestClient(app)
 
-# Helper: register a user and login
 def register_and_login(username="testuser", password="testpass"):
-    # Register
     client.post("/auth/users/", json={"username": username, "password": password})
-    # Login
     resp = client.post("/auth/login/", json={"username": username, "password": password})
     token = resp.json()["access_token"]
     return token
