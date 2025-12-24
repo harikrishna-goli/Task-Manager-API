@@ -1,7 +1,9 @@
 # Task Manager API
 
-A production‑ready **FastAPI backend** for managing tasks with user authentication.  
-This project demonstrates clean backend architecture, JWT authentication, and CRUD operations for tasks.
+A scalable and maintainable FastAPI backend for task management with user authentication.
+Designed with clean architecture, JWT-based security, and full CRUD support.
+
+---
 
 ## Features
 - **User Authentication** (JWT based)
@@ -16,6 +18,7 @@ This project demonstrates clean backend architecture, JWT authentication, and CR
 - **Environment Config**
   - `.env` file support via Pydantic v2 `ConfigDict`.
 
+---
 
 ## Tech Stack
 - **FastAPI** – modern Python web framework
@@ -24,6 +27,7 @@ This project demonstrates clean backend architecture, JWT authentication, and CR
 - **Pydantic v2** – data validation
 - **Pytest** – testing framework
 
+---
 
 ## Project Structure
 ```
@@ -43,7 +47,7 @@ Task-Manager-API/
 ├── docker-compose.yml
 └── README.md
 ```
-
+---
 
 ## Setup & Installation
 
@@ -85,6 +89,7 @@ Task-Manager-API/
    uvicorn app.main:app --reload
    ```
 
+---
 
 ## API Endpoints
 
@@ -99,6 +104,7 @@ Task-Manager-API/
 - `PUT /tasks/{task_id}` → Update task (title, description, status)
 - `DELETE /tasks/{task_id}` → Delete task
 
+---
 
 ## Testing
 Run the test suite with:
