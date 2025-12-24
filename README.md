@@ -40,6 +40,7 @@ Task-Manager-API/
 ├── tests/
 │   └── test_app.py      # Pytest suite
 ├── requirements.txt
+├── docker-compose.yml
 └── README.md
 ```
 
@@ -67,18 +68,18 @@ Task-Manager-API/
 4. **Configure environment**
    Create a `.env` file:
    ```
-   DATABASE_URL=postgresql://user:password@localhost:5432/taskdb
-   SECRET_KEY=your_secret_key
-   ALGORITHM=HS256
+   DATABASE_URL=postgresql+psycopg2://app_user:supersecret@localhost:5432/app_db
+   JWT_SECRET=change_me
+   JWT_ALG=HS256
    ACCESS_TOKEN_EXPIRE_MINUTES=30
+
+   DB_USER=app_user
+   DB_PASSWORD=supersecret
+   DB_NAME=app_db
    ```
 
-5. **Run migrations** (if using Alembic)
-   ```bash
-   alembic upgrade head
-   ```
 
-6. **Start the server**
+5. **Start the server**
    ```bash
    docker compose up -d
    uvicorn app.main:app --reload
