@@ -20,9 +20,9 @@ class UserRead(BaseModel):
     id: int
     username: str
     created_at: datetime
-
-    class Config:
-        from_attributes = True
+    model_config = {
+        "from_attributes": True
+    }
 
 #Schema for user login
 class UserLogin(BaseModel):
@@ -54,6 +54,6 @@ class TaskRead(BaseModel):
     owner_id: int
     created_at: datetime
     updated_at: Optional[datetime] = None
-
-    class Config:
-        from_attributes = True
+    model_config = {
+        "from_attributes": True
+    }
